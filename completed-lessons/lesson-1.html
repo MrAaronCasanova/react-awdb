@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom-factories@1/index.js"></script>
+  <title>React AWDB</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Basic React Component -->
+  <script type="text/javascript">
+    class Pet extends React.Component {
+      render() {
+        // ReactDOMFactories
+        // first param refers to desired attrs, second param is the content
+        const h2 = ReactDOMFactories.h2(null, 'Moxie');
+        const img = ReactDOMFactories.img({
+          src: 'https://github.com/tigarcia/Moxie/raw/master/moxie.png',
+          alt: 'Cat named Moxie',
+        });
+
+        // you can never return multiple components next to each other
+        // you always have to put it inside of one DOM element
+        return ReactDOMFactories.div(null, h2, img);
+      }
+    }
+
+    // Tells react where to hook our component(s) into the DOM
+    ReactDOM.render(React.createElement(Pet), document.getElementById('app'));
+  </script>
+</body>
+</html>
