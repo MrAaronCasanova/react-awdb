@@ -7,11 +7,17 @@ class RecipeList extends Component {
 
   static propTypes = {
     recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onDelete: PropTypes.func.isRequired,
   };
 
   render() {
+    const { onDelete } = this.props;
     const recipes = this.props.recipes.map((r, idx) => (
-      <Recipe key={r.id} {...r} />
+      <Recipe
+        key={r.id}
+        {...r}
+        onDelete={onDelete}
+      />
     ));
 
     return (

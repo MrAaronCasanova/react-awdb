@@ -104,11 +104,12 @@ class RecipeInput extends Component {
           <textarea
             key="instructions"
             id="recipe-instructions-input"
-            type="instructions"
+            type="Instructions"
             name="instructions"
             rows="8"
             cols="50"
             autoComplete="off"
+            value={instructions}
             onChange={this.handleChange}
           />
           {inputs}
