@@ -25,12 +25,12 @@ class FlagQuestion extends Component {
   }
 
   handleChange(e) {
-    e.preventDefault();
-    this.props.onGuess(this.state.userChoice);
+    this.setState({ userChoice: Number(e.target.value) });
   }
 
   handleSubmit(e) {
-    this.setState({ userChoice: Number(e.target.value) });
+    e.preventDefault();
+    this.props.onGuess(this.state.userChoice);
   }
 
   render() {
@@ -51,6 +51,7 @@ class FlagQuestion extends Component {
         (<FlagChoices
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          options={opts}
         />) :
         (<FlagAnswer
           correct={questionState === QuestionStates.ANSWER_CORRECT}

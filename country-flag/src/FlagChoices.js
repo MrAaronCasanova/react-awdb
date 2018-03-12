@@ -14,6 +14,7 @@ const FlagChoices = props => {
         onChange={handleChange}
         name="flag-choice"
       />
+      {opt.name}
     </label>
   ));
 
